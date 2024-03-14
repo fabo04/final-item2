@@ -171,6 +171,65 @@ function closeTrailerModal() {
   modal.style.display = "none";
 }
 
+//---------no se pudo aplicar ya 
+//Funcion para obtener el color dominante
+function getColorDominant(imageElementId) {
+  const imageElement = document.getElementById(imageElementId);
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  const image = new Image();
+
+  image.onload = function() {
+    canvas.width = image.width;
+    canvas.height = image.height;
+    context.drawImage(image, 0, 0);
+
+    // Extraer datos de píxeles
+    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    const pixels = imageData.data;
+
+    // Inicializar contadores de color
+    let totalRed = 0;
+    let totalGreen = 0;
+    let totalBlue = 0;
+    let totalPixels = 0;
+
+    // Calcular suma de los componentes de color para cada píxel
+    for (let i = 0; i < pixels.length; i += 4) {
+      const red = pixels[i];
+      const green = pixels[i + 1];
+      const blue = pixels[i + 2];
+
+      // Descartar píxeles transparentes
+      if (pixels[i + 3] === 255) {
+        totalRed += red;
+        totalGreen += green;
+        totalBlue += blue;
+        totalPixels++;
+      }
+    }
+
+    // Calcular promedio de color
+    const avgRed = Math.round(totalRed / totalPixels);
+    const avgGreen = Math.round(totalGreen / totalPixels);
+    const avgBlue = Math.round(totalBlue / totalPixels);
+
+
+    //asignacion
+    const div = document.getElementById('capa-opaca');
+    //yo
+    div.style.backgroundColor = `rgba(${avgRed},${avgGreen},${avgBlue},0.8)`;
+    //yo
+    console.log(`rgba(${avgRed},${avgGreen},${avgBlue},0.8);`)
+    
+    console.log('Color dominante RGB:', avgRed + ',' + avgGreen + ',' + avgBlue);
+  };
+  
+  image.src = imageElement.src;
+
+}
+
+
 // Función para mostrar los detalles
 async function renderMovieDetails() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -192,28 +251,33 @@ async function renderMovieDetails() {
 
     const posterPath = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`;
     
-    // Fondo
-    const backdropContainer = document.getElementById('backdrop');
-    const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}?api_key=${apiKey}`;
-    backdropContainer.style.backgroundImage = `url('${backdropUrl}')`;
 
-
-
+    
 
     // Muestra los detalles de la película en la página
-    document.getElementById("movie-poster").src = posterPath
-    document.getElementById("img-provider").src = logoProviderURL
+    document.getElementById("movie-poster").src = posterPath;
+    document.getElementById("img-provider").src = logoProviderURL;
     document.getElementById("movie-title").textContent = movieDetails.title;
     const year = new Date(movieDetails.release_date).getFullYear();
     document.getElementById("year").textContent = `(${year})`;
 
-    document.getElementById("certification").textContent = certification
+    document.getElementById("certification").textContent = certification;
 
     const hours = Math.floor(movieDetails.runtime / 60);
     const minutes = movieDetails.runtime % 60;
     const date = formatDate ? formatDate : movieDetails.release_date
     document.getElementById("movie-release-date").textContent = `${date} (AR) • ${movieDetails.genres.map(genre => genre.name).join(", ")} • ${hours}h ${minutes}m`;
     
+
+
+    //getColorDominant('movie-poster');
+
+        // Fondo
+    const backdropContainer = document.getElementById('backdrop');
+    const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}?api_key=${apiKey}`;
+    backdropContainer.style.backgroundColor = "rgba(200, 0, 0, 1)";
+    backdropContainer.style.backgroundImage = `url('${backdropUrl}')`;
+
     // Porcentaje
     const puntuacionEnPorcentaje = Math.floor(movieDetails.vote_average * 10);
    
@@ -241,7 +305,6 @@ async function renderMovieDetails() {
     console.error("Error al obtener los detalles de la película:", error);
   }
 }
-
 
 
 // Inicializar la página
