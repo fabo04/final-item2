@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The MovieFab: Serie Details</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <div id="backdrop"></div>
+
+  <div id="serie-details-container">
+    <div id="poster-provider">
+      <img src="" id="serie-poster" alt="Serie Poster">
+      <div id="provider">
+        <div id="div-img-provider">
+          <img id="img-provider" src="" alt="prov-log">
+        </div>
+        <div id="div-text-provider">
+          <span id="span-text">
+            <h4 id="h4-provider">Ahora en retransmisión</h4>
+            <h3 id="h3-provider">Ver ahora</h3>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <section id="header-details">
+      <div id="details-title">
+        <div id="title-year">
+          <h2 id="serie-title"></h2>
+          <h2 id="year"></h2>
+        </div>
+        <p id="serie-release-date"></p>
+      </div>
+
+      <ul id="ul-actions">
+        <!-- Porcentaje -->
+        <li class="li-action">
+          <div class="chart">
+            <div class="consensus">
+              <div class="outer_ring">
+                <div class="user_score_chart" data-percent="85.0" data-track-color="#204529" data-bar-color="#21d07a">
+                  <div class="percent">
+                      <span id="span-porcent" class="span-porcent">85﹪</span>
+                  </div>
+                  <canvas id="circularBar" height="120" width="120" style="height: 64px; width: 64px;"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>  
+          <div id="procent-text">Puntuación de usuarios</div>
+        </li>
+
+
+        <li class="li-action">
+          <div class="actions-buttons">
+            <a href="">
+              <i class="bi bi-list-task"></i>
+            </a>
+          </div>
+        </li>
+        <li class="li-action">
+          <div class="actions-buttons">
+            <a href="">
+              <i class="bi bi-heart-fill"></i>
+            </a>
+          </div>
+        </li>
+        <li class="li-action">
+          <div class="actions-buttons">
+            <a href="">
+              <i class="bi bi-bookmark-fill"></i>
+            </a>
+          </div>
+        </li>
+        <li class="li-action">
+          <div class="actions-buttons">
+            <a href="">
+              <i class="bi bi-star-fill"></i>
+            </a>
+          </div>
+        </li>
+        <li class="li-action">
+          <a id="play-trailer" href="">
+            <span>
+              <i class="bi bi-play-fill"></i>
+            </span>
+            <span>Reproducir trailer</span>
+          </a>
+        </li>
+      </ul>
+
+      <div id="info">
+        <h3 id="serie-tagline"></h3>
+        <h3 id="general-view">Vista general</h3>
+        <div id="description">
+          <p id="serie-description"></p>
+        </div>
+        <ul id="producer-list">
+          <li id="li-producer">
+            <p id="serie-producer"></p>
+            <p id="producer">Productor Ejecutivo</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal para mostrar el trailer -->
+  <div id="trailer-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <iframe id="trailer-iframe" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  <span id="closeButton" class="close">&times;</span>
+  <script src="./js/config.js"></script>
+  <script src="./js/tv_serie_details.js"></script>
+</body>
+</html>
