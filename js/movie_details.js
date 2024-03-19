@@ -340,6 +340,6 @@ window.addEventListener("click", function(event) {
 
 // Agregar evento de clic al botón de cierre de la vista de detalle
 document.getElementById("closeButton").addEventListener("click", function() {
-  window.location.href = "index.html";
+  window.location.href = "movies.html";
 });
 

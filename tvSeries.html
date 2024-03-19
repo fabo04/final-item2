@@ -15,28 +15,19 @@
   <title>The MovieFab</title>
 </head>
 <body>
-  <div class="divLogo">
-    <img class="logo" src="./assets/logo.png" alt="The MovieFab">
-  </div>
+    <div class="divLogo">
+        <img class="logo" src="./assets/logo.png" alt="The MovieFab">
+    </div>
 
-  <form id="searchForm" class="header-searchForm">
-    <input id="searchInput" type="text" placeholder="Buscar" />
-    <button id="searchBtn"><i class="bi bi-search"></i></button>
-  </form>
+    <h1>Series de TV mejor puntuadas</h1>
+    <div id="tv-series"></div>
+    <div class="pagination" id="seriesPagination"></div>
 
-  <section id="index">
-    <a href="movies.html" id="btn-index" class="movie">
-      <h1 class="btn-text">Películas mejor puntuadas</h1>
-    </a>
-    <a href="tvSeries.html" id="btn-index"  class="movie">
-      <h1 class="btn-text">Series de TV mejor puntuadas</h1>
-    </a>
-  </section>
-
-  <footer class="footer-index"><h1><a href="https://github.com/fabo04">@fabo04</a></h1></footer>
-
+    <span id="closeButton" class="close">&times;</span>
+    
+    <footer><h1><a href="https://github.com/fabo04">@fabo04</a></h1></footer>
   <script src="./js/config.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="./js/tvSeries.js"></script>
 </body>
 </html>
 

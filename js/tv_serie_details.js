@@ -185,5 +185,5 @@ window.addEventListener("click", function(event) {
 });
 
 document.getElementById("closeButton").addEventListener("click", function() {
-  window.location.href = "index.html";
+  window.location.href = "tvSeries.html";
 });

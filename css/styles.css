@@ -145,6 +145,12 @@ footer {
   align-items: center;
   margin-top: 32px;
 }
+.footer-index{
+  position: fixed;
+  bottom: 0; 
+  width: 100%;
+}
+
 
 footer a {
   font-size: 32px !important;
@@ -518,7 +524,7 @@ height: 100%;
 /* Search */
 
 #searchForm {
-  margin-top: 10px;
+  margin-top: 24px;
 }
 
 #searchInput {
@@ -618,4 +624,68 @@ height: 100%;
   width: 100%;
   height: 100%;
   background-color: rgba(39, 38, 43, 0.80)
+}
+
+/* Nuevo index */
+
+#index {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 60px;
+}
+
+#btn-index {
+  
+  background-color: var(--marron-claro);
+  width: 340px;
+  max-width: 340px;
+  margin: 40px;
+}
+
+#index a {
+  text-decoration: none;
+}
+
+
+/* Anular estilos de Bootstrap para botones de paginación */
+.pagination .page-item .page-link {
+  border-radius: 0; /* Eliminar la propiedad de border-radius */
+
+}
+
+/* Estilo adicional para botones de paginación */
+.pagination .page-item .page-link {
+  text-align: center;
+  color: var(--fondo);
+  background-color: var(--beige);
+
+  border: 1px solid var(--gris-oscuro); /* Borde */
+}
+
+.pagination .page-item.active .page-link {
+  z-index: 1;
+  color: var(--marron-oscuro); 
+  background-color: var(--marron-claro); 
+  border-color: var(--gris-oscuro); 
+}
+
+.pagination .page-item.disable .page-link{
+  color: var(--gris-claro) !important;
+  background-color: var(--gris-claro);
+}
+.pagination .page-item.disabled .page-link {
+  background-color: var(--gris-claro);
+  color: var(--gris-oscuro); 
+}
+
+.pagination .page-item:hover .page-link {
+  cursor: pointer;
+  background-color: #767660; /* Color de fondo del botón al pasar el mouse */
+}
+.pagination .page-item.disabled:hover .page-link {
+  background-color: var(--gris-claro);
+}
+
+.btn-prev a{
+  width: 100px;
 }
