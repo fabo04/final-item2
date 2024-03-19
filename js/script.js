@@ -6,12 +6,14 @@ searchForm.addEventListener('submit', async (event) => {
     window.location.href = `search.html?query=${query}`;
 });
 
+
 // Función para obtener las películas mejor puntuadas
 async function getTopRatedMovies() {
   const response = await fetch(`${baseUrl}/movie/top_rated?api_key=${apiKey}&language=es-AR`);
   const data = await response.json();
   return data.results;
 }
+
 
 // Función para obtener las series de TV paginadas
 async function getTVSeries() {
@@ -20,10 +22,11 @@ async function getTVSeries() {
   return data.results;
 }
 
-// Declaración de variables globales para el número de página actual para películas y series de TV, y el tamaño de página.
-let moviePageNumber = 1; // Página actual para películas
-let tvSeriesPageNumber = 1; // Página actual para series de TV
-const pageSize = 5; // Tamaño de página
+
+// Declaración de variables globales para el paginador
+let moviePageNumber = 1;
+let tvSeriesPageNumber = 1;
+const pageSize = 5;
 
 // Función para mostrar las películas en la interfaz con paginación
 function renderMovies(movies) {
